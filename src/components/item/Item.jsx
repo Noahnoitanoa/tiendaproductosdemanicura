@@ -7,7 +7,7 @@ import "./Item.css"
 
 const Item = ({ nombre, precio, img, id }) => {
     return (
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '12rem' }}>
             <Card.Img variant="top" src={img} alt={nombre} />
             <Card.Body>
                 <Link to={`/productos/${id}`}>
@@ -15,10 +15,15 @@ const Item = ({ nombre, precio, img, id }) => {
                     <Card.Text>
                         Precio: ${precio}
                     </Card.Text>
+                    <footer className='ItemFooter'>
+                <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
+                </footer>
                 </Link>
                 <Contador inicio={0}></Contador>
+                
             </Card.Body>
         </Card>
+        
     )
 }
 

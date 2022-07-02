@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Navbar, Nav, Container } from "react-bootstrap"
-import CartIcon from './cartWidget'
+import CartIcon from '../CartWidget/cartWidget'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
