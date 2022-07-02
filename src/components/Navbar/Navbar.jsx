@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Navbar, Nav, Container } from "react-bootstrap"
 import CartIcon from './cartWidget'
 import { Link } from 'react-router-dom'
-import '../Navbar.css'
+import './Navbar.css'
 
 const NavBar = () => {
     return <>
@@ -11,11 +11,11 @@ const NavBar = () => {
             <Navbar bg="dark" expand="lg" variant='dark'>
                 <Container fluid>
                     <CartIcon className="cart-widget__icon" />
-                    <Navbar.Brand href="#home">Golden Byte</Navbar.Brand>
+                    <Navbar.Brand href="#home">Todoparatusuñas</Navbar.Brand>
                     <Nav className="me-auto">
                         <Link className='nav-link' to="/Ecommerce">Inicio</Link>    
                         <Link className='nav-link' to="/productos">Productos</Link>   
-                        <Nav.Link href="#pricing">Proximamente</Nav.Link>
+                        <Nav.Link href="#pricing">Cursos</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
@@ -23,4 +23,4 @@ const NavBar = () => {
     </>
 }
 
-export default Navbar
+export default NavBar

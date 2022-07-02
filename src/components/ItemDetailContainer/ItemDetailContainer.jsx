@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
             
         }
         )
-    }, [])
+    }, [id])
 
     return (
         <section>
