@@ -1,3 +1,19 @@
-.listado{
-    margin-top: 50px;
-}
+.ItemList {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+  }
+  .titulo-categoria {
+    color: white;
+    background-color: var(--color-terciario);
+    text-shadow: 1px 1px 1px #a3a1a1;
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    min-height: 90px;
+  }

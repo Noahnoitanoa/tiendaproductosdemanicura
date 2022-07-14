@@ -1,0 +1,15 @@
+.ItemListContainer {
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .greeting {
+    color: var(--color-primario);
+    font-size: 45px;
+    margin-bottom: 50px;
+  }
+  

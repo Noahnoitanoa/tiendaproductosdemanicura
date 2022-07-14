@@ -11,25 +11,8 @@ import { useOrders } from "services/firebase/firestore/orders"
 
 const Cart = () => {
     const [loading, setLoading] = useState(false)
-    const { cart, totalQuantity, getTital, clearCart } = useCart(CartContext)
+    const { cart, totalQuantity, getTotal, clearCart } = useCart(CartContext)
 
-    if (loading) {
-        return<h1>Se esta generando su pedido</h1>
-    }
-
-    if (totalQuantity === 0) {
-        return<h1>No hay productos en el carro </h1>
-    }
-
-    return (
-        <>
-            <h1>Cart</h1>
-            <cartItemList ProductsAdded={cart}/>
-            <h3>Total: ${total}</h3>
-            <button onClick={() => clearCart()} className="Button">Borrar carrito</button>
-            <button onClick={() => console.log('crear orden')} className="Button">Generar pedido</button>
-        </>
-    )
     const { user } = useAuth()
     const { createOrder } = useOrders()
 
@@ -49,14 +32,28 @@ const Cart = () => {
         })
     }
 
-    if(loading) {
-        return (
-            <Flex height='100%' flexDirection='column' justifyContent='center'>
-                <Spinner />
-            </Flex>
-        )
+
+    if (loading) {
+        return<h1>Se esta generando su pedido</h1>
+        
     }
 
+    if (totalQuantity === 0) {
+        return<h1>No hay productos en el carro </h1>
+    }
+
+    return (
+        <>
+            <h1>Cart</h1>
+            <cartItemList ProductsAdded={cart}/>
+            <h3>Total: ${total}</h3>
+            <button onClick={() => clearCart()} className="Button">Borrar carrito</button>
+            <button onClick={() => console.log('crear orden')} className="Button">Generar pedido</button>
+        </>
+    )
+    
+    }
+   
     if(orderId !== '') {
         return (
             <Flex flexDirection='column' justifyContent='space-between' alignItems='center' height='100%' p={50}>
@@ -117,17 +114,17 @@ const Cart = () => {
                 <Text fontWeight={800} fontSize={'3xl'}>
                     Total: ${totalToPay}
                 </Text>
-                <Button
+                <Button>
                         variant="solid" 
                         size="lg" 
                         backgroundColor="#aaeeee"
                         onClick={handleCreateOrder}
-                >
+                
                     Create Order
                 </Button>
             </Flex>
         </Flex>
     )
-}
+  
 
 export default Cart

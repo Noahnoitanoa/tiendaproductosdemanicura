@@ -1,22 +1,26 @@
-import React from 'react';
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import NavBar from './components/Navbar/Navbar.jsx';
-import ItemListContainer from './container/itemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
-import './App.css';
+import React from 'react'
+import {
+  ChakraProvider,
+} from '@chakra-ui/react'
+import { BrowserRouter } from 'react-router-dom'
 
-function App() {
-  return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path='/productos/:id' element={<ItemDetailContainer />} />
-        <Route path='/Ecommerce' element={<h1 style={{ textAlign: "center" }}> Este seria el inicio </h1>} />
-        <Route path='/productos' element={<ItemListContainer mensaje={"Catalogo de Productos"} />} />
-      </Routes>
-    </Router>
+import AppRouter from 'routes/App-Router'
+import { AuthProvider } from 'context/AuthContext'
+import { CartProvider } from 'context/CartContext'
+import Layout from 'components/Layout/Layout'
 
-  );
-}
+const App = () => (
+  <ChakraProvider resetCSS>
+    <BrowserRouter>
+      <CartProvider>
+        <AuthProvider>
+          <Layout>
+            <AppRouter />
+          </Layout>
+        </AuthProvider>
+      </CartProvider>
+    </BrowserRouter>
+  </ChakraProvider>
+)
 
-export default App;
+export default App

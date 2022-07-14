@@ -1,0 +1,16 @@
+.menuNavItem {
+    padding: 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .menuNavItem-item {
+    color: white;
+    cursor: pointer;
+  }
+  
+  .menuNavItem-item:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+  }
+  

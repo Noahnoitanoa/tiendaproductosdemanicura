@@ -1,0 +1,16 @@
+.logoMain {
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    left: 30px;
+    top: 5px;
+  }
+  
+  .navBar {
+    background-color: var(--color-secundario);
+    min-height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 50px;
+  }
+  

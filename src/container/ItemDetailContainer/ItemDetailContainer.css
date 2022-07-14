@@ -1,0 +1,6 @@
+.ItemDetailContainer {
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+  }
+  

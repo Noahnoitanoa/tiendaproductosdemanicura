@@ -45,10 +45,10 @@ export const CartProvider = ({ children }) => {
         cart.forEach(prod => {
             total += prod.quantity * prod.price
         })
-
+        
         setTotalToPay(total)
     }
-
+    
     const isInCart = (id) => {
         return cart.some(p => p.id === id )
     }
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
     }
 
     const getProductQuantity = (id) => {
-        return cart.find(prod => prod.id === id)?.quantity || 0
+        return cart.find(prod => prod.id === id)?.quantity
     }
 
 
@@ -86,4 +86,4 @@ export const CartProvider = ({ children }) => {
 
 export const useCart = () => {
     return useContext(CartContext)
-} 
+}

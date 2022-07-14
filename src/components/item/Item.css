@@ -1,0 +1,76 @@
+.Item {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000,
+      0px 10px 25px 3px rgba(0, 0, 0, 0.26);
+    box-shadow: 0px 10px 13px -7px #000000, 0px 10px 25px 3px rgba(0, 0, 0, 0.26);
+  }
+  .Item:hover {
+    transform: scale(1.05);
+  }
+  .Item__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .Item__categoria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    color: white;
+    background-color: var(--color-terciario);
+    text-shadow: 1px 1px 1px #a3a1a1;
+  
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .Item__card-img {
+    margin-bottom: 15px;
+    object-fit: cover;
+    width: 100%;
+  }
+  .Item__card-nombre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 5px 10px 5px;
+  }
+  .Item__card-precio {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--color-primario);
+  }
+  .Item__card-stock {
+    font-size: 12px;
+    text-align: left;
+    color: gray;
+    margin-bottom: 10px;
+  }
+  .Item__card-contador {
+    margin: 0 15px 10px 15px;
+  }
+  .Item__card-botonAgregar {
+    margin: 0 15px 10px 15px;
+  }
+  .Item__card-verDetalle {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .Item__card-verDetalle a {
+    color: #8a827b;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: underline;
+  }

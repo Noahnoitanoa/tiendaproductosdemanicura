@@ -1,26 +1,30 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Navbar, Nav, Container } from "react-bootstrap"
-import CartIcon from '../CartWidget/cartWidget'
-import { Link } from 'react-router-dom'
-import './Navbar.css'
+import "./NavBar.css";
+import CartWidget from "../CartWidget/cartWidget";
+import MenuNav from "../MenuNav/MenuNav";
+import { Link } from "react-router-dom";
+import CartContext from "../Context/CartContext";
+import { useContext, useEffect, useState } from "react";
 
 const NavBar = () => {
-    return <>
-        <div>
-            <Navbar bg="dark" expand="lg" variant='dark'>
-                <Container fluid>
-                    <CartIcon className="cart-widget__icon" />
-                    <Navbar.Brand href="#home">Todoparatusuñas</Navbar.Brand>
-                    <Nav className="me-auto">
-                        <Link className='nav-link' to="/Ecommerce">Inicio</Link>    
-                        <Link className='nav-link' to="/productos">Productos</Link>   
-                        <Nav.Link href="#pricing">Cursos</Nav.Link>
-                    </Nav>
-                </Container>
-            </Navbar>
-        </div>
-    </>
-}
+  const { cantidadEnCarrito } = useContext(CartContext);
+  const [carritoVacio, setCarritoVacio] = useState(true);
 
-export default NavBar
+  useEffect(() => {
+    setCarritoVacio(cantidadEnCarrito > 0 ? false : true);
+  }, [cantidadEnCarrito]);
+
+  return (
+    <div className="navBar">
+      <Link to="/">
+        <img
+          src={process.env.PUBLIC_URL + "/img/logoMain.png"}
+          className="logoMain"
+        />
+      </Link>
+      <MenuNav />
+      {!carritoVacio && <CartWidget />}
+    </div>
+  );
+};
+
+export default NavBar;
