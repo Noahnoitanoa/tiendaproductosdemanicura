@@ -8,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
-import { useCart } from 'context/CartContext';
+import { useCart } from '../../context/CartContext';
   
 const ItemCart = ({ id, name, quantity, price }) => {
   const navigate = useNavigate()

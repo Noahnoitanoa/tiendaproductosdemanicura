@@ -1,21 +1,24 @@
 import { Text, Spinner, Flex } from "@chakra-ui/react"
 import { useState, useEffect } from "react"
+import { getProducts, getProductsByCategory } from '../../bd'
 import ItemList from "../itemList/ItemList"
 
 import { useProducts } from "services/firebase/firestore/products"
 import { db } from "../../services/firebase"
 import { collection, getDoc } from "firebase/firestore"
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     const { getProducts } = useProducts()
 
     useEffect(() => {
         setLoading(true)
 
-        const collectionRef=collection(db, 'products')
+        const collectionRef= categoryId ? (
+            query(collection( db, 'products'), where('category', '==', categoryId))
+        ) : (collection( db, 'products'))
 
         getDoc(collectionRef).then(response => {
             console.log(response)
@@ -27,7 +30,7 @@ const ItemListContainer = () => {
         console.log(error)
     }).finally(() => {
         setLoading(false)   
-        
+
      })
     //     getProducts().then(products => {
     //         setProducts(products)
