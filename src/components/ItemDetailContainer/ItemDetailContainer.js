@@ -1,44 +1,62 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { Spinner, Flex } from "@chakra-ui/react"
-
-import { getDocs } from 'firebase/firestore'
+import { Text, Spinner, Flex } from "@chakra-ui/react"
+import { useState, useEffect } from "react"
+import { getProducts, getProductsByCategory } from '../../bd'
+import ItemList from "../itemList/ItemList"
 
 import { useProducts } from "services/firebase/firestore/products"
+import { db } from "../../services/firebase"
+import { collection, getDoc, query, where } from "firebase/firestore"
 
-import ItemDetail from '../ItemDetail/ItemDetail'
+const ItemListContainer = (props) => {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
 
-const ItemDetailContainer = () => {
-    const [product, setProduct] = useState(null)
-    const [loading, setLoading] = useState(true)
-
-    const { productId } = useParams()
-
-    const { getProductById } = useProducts()
+    const { categoryId } = useProducts()
 
     useEffect(() => {
         setLoading(true)
 
-        getProductById(productId).then(product => {
-            setProduct(product)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [productId]) //eslint-disable-line
+        const collectionRef= categoryId ? (
+            query(collection( db, 'products'), where('category', '==', categoryId))
+        ) : (collection( db, 'products'))
 
-    if(loading) {
-        return (
-            <Flex height='100%' flexDirection='column' justifyContent='center'>
-                <Spinner />
-            </Flex>
-        )
-    }
+        getDoc(collectionRef).then(response => {
+            console.log(response)
+            const productFormatted = response.docs.map(doc => {
+                return { id: doc.id, ...doc.data() }
+        })     
+            setProducts(productFormatted)
+    }).cath(error => {
+        console.log(error)
+    }).finally(() => {
+        setLoading(false)   
 
-    return(
-        <ItemDetail {...product}/>
-    )
+     })
+    }, [categoryId])
 }
+    //     getProducts().then(products => {
+    //         setProducts(products)
+    //     }).catch(error => {
+    //         console.log(error)
+    //     }).finally(() => {
+    //         setLoading(false)
+    //     })
+    // }, []) //eslint-disable-line
 
-export default ItemDetailContainer
+//     if(loading) {
+//         return (
+//             <Flex height='100%' flexDirection='column' justifyContent='center'>
+//                 <Spinner />
+//             </Flex>
+//         )
+//     }
+
+//     return (
+//         <Flex height='100%' flexDirection='column' justifyContent='flex-start' alignItems='center'>
+//             <Text fontSize='2xl'>Products</Text>
+//             <ItemList products={products}/>
+//         </Flex>
+//     )
+// }
+
+ export default ItemListContainer

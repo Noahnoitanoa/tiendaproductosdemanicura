@@ -33,6 +33,7 @@ const ItemListContainer = (props) => {
 
      })
     }
+    
     //     getProducts().then(products => {
     //         setProducts(products)
     //     }).catch(error => {
@@ -58,4 +59,4 @@ const ItemListContainer = (props) => {
 //     )
 // }
 
-// export default ItemListContainer
+export default ItemListContainer

@@ -48,7 +48,7 @@ const useProvideAuth = () => {
     }
 
     const signin = (email, password, callback) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword( email, password)
             .then(async (userCredential) => {
                 const user = userCredential.user;
                 const userData = await handleUser(user)
@@ -63,7 +63,7 @@ const useProvideAuth = () => {
     const signinWithGithub = async (callback) => {
         const provider = new GithubAuthProvider()
 
-        signInWithPopup(auth, provider)
+        signInWithPopup( provider)
             .then(async (userCredencial) => {
                 const user = userCredencial.user 
                 const userData = await handleUser(user)  
@@ -85,7 +85,7 @@ const useProvideAuth = () => {
     }
 
     const signout = () => {
-        signOut(auth)
+        signOut()
             .then(() => {
                 handleUser(false)
                 clearCart()
@@ -94,7 +94,7 @@ const useProvideAuth = () => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, handleUser)
+        const unsubscribe = onAuthStateChanged( handleUser)
 
         return () => unsubscribe()
     }, []) //eslint-disable-line

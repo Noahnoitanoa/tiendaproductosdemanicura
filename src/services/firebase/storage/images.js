@@ -1,11 +1,11 @@
-import { storage } from "..";
+//import { storage } from "..";
 import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 import { v4 } from "uuid";
 
 export const useImageStorage = () => {
     const uploadImage = (image) => {
         return new Promise((resolve, reject) => {
-            const imageRef = ref(storage, `images/products/${image.name + v4()}`)
+            const imageRef = ref(ref, `images/products/${image.name + v4()}`)
             uploadBytes(imageRef, image)
                 .then(response => {
                     getDownloadURL(response.ref).then(url => {
@@ -20,7 +20,7 @@ export const useImageStorage = () => {
 
     const deleteImage = (imageUrl) => {
         return new Promise((resolve, reject) => {
-            const imageRef = ref(storage, imageUrl)
+            const imageRef = ref(ref, imageUrl)
             deleteObject(imageRef)
                 .then(() => {
                     resolve(true)
