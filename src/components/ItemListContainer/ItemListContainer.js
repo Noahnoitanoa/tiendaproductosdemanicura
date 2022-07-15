@@ -32,6 +32,7 @@ const ItemListContainer = (props) => {
         setLoading(false)   
 
      })
+    }
     //     getProducts().then(products => {
     //         setProducts(products)
     //     }).catch(error => {
