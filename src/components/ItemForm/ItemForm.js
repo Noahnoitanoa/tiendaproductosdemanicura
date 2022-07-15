@@ -11,14 +11,14 @@ import {
     NumberDecrementStepper,
     Spinner
 } from "@chakra-ui/react"
-import FileUpload from 'components/FileUpload/FileUpload'
+import FileUpload from '../FileUpload/FileUpload'
 
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { useProducts } from 'services/firebase/firestore/products'
 import { useImageStorage } from 'services/firebase/storage/images'
 
-import { parsePrice, formatPrice } from 'helpers/strings'
+import { parsePrice, formatPrice } from '../../helpers/strings'
 
 const ItemForm = () => {
     const [productData, setProductData] = useState({

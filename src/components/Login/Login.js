@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button, Flex, Spinner, Input, Text } from "@chakra-ui/react"
 import { FaGithub } from 'react-icons/fa'
 
-import { useAuth } from "context/AuthContext"
+import { useAuth } from "../../context/AuthContext"
 import { useLocation, useNavigate } from 'react-router-dom'
 
 

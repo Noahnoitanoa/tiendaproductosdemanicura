@@ -10,12 +10,12 @@ import {
     Button
   } from '@chakra-ui/react';
   import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-import AddToCart from 'components/AddToCart/AddToCart';
+import AddToCart from '../AddToCart/AddToCart';
 
 import { useNavigate, useLocation } from 'react-router-dom'
 
-import { useAuth } from 'context/AuthContext';
-import { useCart } from 'context/CartContext';
+import { useAuth } from '../../context/AuthContext';
+import { useCart } from '../../context/CartContext';
   
 
 const Rating = ({ rating = 4.2, numReviews = 36 }) => {

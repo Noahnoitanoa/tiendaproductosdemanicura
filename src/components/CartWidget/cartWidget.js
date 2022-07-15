@@ -7,7 +7,7 @@ import {
 import { FiShoppingCart } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom'
 
-import { useCart } from 'context/CartContext';
+import { useCart } from '../../context/CartContext';
 
 const CartWidget = () => {
   const navigate = useNavigate()

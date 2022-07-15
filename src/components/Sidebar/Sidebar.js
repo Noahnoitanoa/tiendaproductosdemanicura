@@ -33,11 +33,11 @@ import {
   FiBox
 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { capitalize } from 'helpers/strings';
+// import { capitalize } from '../../helpers/strings';
 
-import CartWidget from 'components/CartWidget/CartWidget';
+import CartWidget from '../CartWidget/cartWidget';
 
-import { useAuth } from 'context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 const LinkItems = [
   { name: 'Products', icon: FiBox, path: '/' },

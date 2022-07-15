@@ -1,7 +1,7 @@
 import { Spinner, Flex } from "@chakra-ui/react"
 import { useState, useEffect } from "react"
-import ItemManager from 'components/ItemManager/ItemManager'
-import ItemsManagerControls from "components/ItemsManagerControls/ItemsManagerControls"
+import ItemManager from '../ItemManager/ItemManager'
+import ItemsManagerControls from "../ItemManagerControls/ItemsManagerControls"
 
 import { useProducts } from "services/firebase/firestore/products"
 import { useImageStorage } from "services/firebase/storage/images"

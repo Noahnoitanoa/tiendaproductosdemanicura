@@ -1,18 +1,18 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-import ItemListContainer from 'components/ItemListContainer/ItemListContainer'
-import ItemDetailContainer from 'components/ItemDetailContainer/ItemDetailContainer'
-import Login from 'components/Login/Login'
-import Profile from 'components/Profile/Profile'
-import Cart from 'components/Cart/Cart'
-import OrdersList from '../components/OrdersList/OrdersList'
+import ItemListContainer from '../components/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer'
+import Login from '../components/Login/Login'
+import Profile from '../components/Profile/Profile'
+import Cart from '../components/Cart/Cart'
+import OrdersList from '../components/OrderList/OrderList'
 
-import { useAuth } from 'context/AuthContext'
-import ProtectedRoute from 'routes/components/ProtectedRoute/ProtectedRoute'
-import PublicRoute from 'routes/components/PublicRoute/PublicRoute'
+import { useAuth } from '../context/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import PublicRoute from './components/PublicRoute/PublicRoute'
 import BackOfficeRoute from './components/BackOfficeRoute/BackOfficeRoute'
-import ItemsManagerContainer from 'components/ItemsManagerContainer/ItemsManagerContainer'
-import ItemForm from 'components/ItemForm/ItemForm'
+import ItemsManagerContainer from '../components/ItemsManagerContainer/ItemsManagerCointainer'
+import ItemForm from '../components/ItemForm/ItemForm'
 
 
 const AppRouter = () => {

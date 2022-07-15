@@ -1,10 +1,10 @@
 import { useState, useEffect, createContext, useContext } from 'react'
 import { GithubAuthProvider, signInWithPopup, signOut, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
-import { useCart } from 'context/CartContext';
+import { useCart } from './CartContext';
 
-import { auth } from 'services/firebase';
-import { useUsers } from 'services/firebase/firestore/users';
+import { auth } from '../services/firebase';
+import { useUsers } from '../services/firebase/firestore/users';
 
 import { useNavigate } from 'react-router-dom';
 
